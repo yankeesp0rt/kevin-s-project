@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AdminController">
+   <content>
+      <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1600.0" prefWidth="750.0">
+         <top>
+            <AnchorPane prefHeight="1600.0" prefWidth="600.0" style="-fx-background-color: gray;" BorderPane.alignment="CENTER">
+               <children>
+               	  <Label layoutX="20.0" layoutY="19.0" text="Home">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Button id="logOutButton" fx:id="LogOut" layoutX="657.0" layoutY="14.0" mnemonicParsing="false" onAction="#userLogOut" style="-fx-background-color: yellow;" text="Log Out" textFill="#462323">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="516.0" layoutY="19.0" text="Logged In: ">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="601.0" layoutY="19.0" text="Admin">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+                  <Button id="adminButton" fx:id="AdminButton" layoutX="76.0" layoutY="14.0" mnemonicParsing="false" onAction="#AdminButton" style="-fx-background-color: yellow;" text="Admin" textFill="#462323">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+                  <Button id="appointmentsButton" fx:id="AppointmentButton" layoutX="150.0" layoutY="14.0" mnemonicParsing="false" onAction="#AppointmentButton" style="-fx-background-color: yellow;" text="Appointments" textFill="#462323">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+                  <Button id="invoiceButton" fx:id="InvoiceButton" layoutX="278.0" layoutY="14.0" mnemonicParsing="false" onAction="#InvoiceButton" style="-fx-background-color: yellow;" text="Invoice" textFill="#462323">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+                  <Button id="ordersButton" fx:id="OrdersButton" layoutX="355.0" layoutY="14.0" mnemonicParsing="false" onAction="#OrderButton" style="-fx-background-color: yellow;" text="Orders" textFill="#462323">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+                  <Button id="referralsButton" fx:id="ReferralsButton" layoutX="430.0" layoutY="14.0" mnemonicParsing="false" onAction="#ReferralsButton" style="-fx-background-color: yellow;" text="Referrals" textFill="#462323">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+                  <Pane id="placedOrdersPane" fx:id="placedOrdersPane" layoutX="15.0" layoutY="125.0" prefHeight="215.0" prefWidth="720.0" style="-fx-background-color: white;">
+                     <children>
+                        <Label id="placedOrdersLabel" layoutX="295.0" layoutY="14.0" text="Placed Orders">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Line id="placedOrdersCosmeticLine" endX="410.0" endY="1.52587890625E-5" layoutX="284.0" layoutY="55.0" startX="-264.6666564941406" startY="1.52587890625E-5" />
+                        <Label id="searchOrdersLabel" layoutX="506.0" layoutY="74.0" text="Search:">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <TableView id="placedOrdersTable" fx:id="placedOrdersTable" layoutX="14.0" layoutY="115.0" prefHeight="90.0" prefWidth="694.0">
+                          <columns>
+                          	<TableColumn id="placedOrdersIDCol" fx:id="placedOrdersIDCol" prefWidth="130.0" text="ID" />
+                            <TableColumn id="placedOrdersPatientCol" fx:id="placedOrdersPatientCol" prefWidth="130.0" text="Patient" />
+                            <TableColumn id="placedOrdersDocCol" fx:id="placedOrdersDocCol" prefWidth="130.0" text="Referral MD" />
+                            <TableColumn id="placedOrdersModalityCol" fx:id="placedOrdersModalityCol" prefWidth="130.0" text="Modality" />
+                            <TableColumn id="placedOrdersNotesCol" fx:id="placedOrdersNotesCol" prefWidth="130.0" text="Notes" />
+                            <TableColumn id="placedOrdersStatusCol" fx:id="placedOrdersStatusCol" prefWidth="130.0" text="Status" />
+                          </columns>
+                        </TableView>
+                        <TextField fx:id="searchPlacedOrdersTextField" layoutX="554.0" layoutY="70.0" onAction="#searchPlacedOrders" prefHeight="26.0" prefWidth="155.0" />
+                     </children>
+                  </Pane>
+                  <Pane id="checkedInAppsPane" fx:id="checkedInAppsPane" layoutX="15.0" layoutY="370.0" prefHeight="215.0" prefWidth="720.0" style="-fx-background-color: white;">
+                     <children>
+                        <Label id="checkedInAppointmentsPaneLabel" layoutX="241.0" layoutY="14.0" text="Checked-In Appointments">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Line id="checkedInAppointmentsCosmeticLine" endX="410.0" endY="1.52587890625E-5" layoutX="284.0" layoutY="55.0" startX="-264.6666564941406" startY="1.52587890625E-5" />
+                        <TableView id="checkedInAppsTable" fx:id="checkedInAppsTable" layoutX="14.0" layoutY="115.0" prefHeight="90.0" prefWidth="694.0">
+                          <columns>
+                            <TableColumn id="checkedInPatientCol" fx:id="checkedInPatientCol" prefWidth="110.0" text="Patient" />
+                            <TableColumn id="checkedInModalityCol" fx:id="checkedInModalityCol" prefWidth="110.0" text="Modality" />
+                            <TableColumn id="checkedInDateAndTimeCol" fx:id="checkedInDateAndTimeCol" prefWidth="110.0" text="Date and Time" />
+                            <TableColumn id="checkedInRadioCol" fx:id="checkedInRadioCol" prefWidth="110.0" text="Radiologist" />
+                            <TableColumn id="checkedInTechCol" fx:id="checkedInTechCol" prefWidth="110.0" text="Technician" />
+                            <TableColumn id="checkedInStatusCol" fx:id="checkedInStatusCol" prefWidth="110.0" />
+                          </columns>
+                        </TableView>
+                        <Label id="searchCheckedInLabel" layoutX="506.0" layoutY="74.0" text="Search:">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField id="searchCheckedInTextField" fx:id="searchCheckedInTextField" layoutX="554.0" layoutY="71.0" onAction="#searchCheckedIn" prefHeight="26.0" prefWidth="152.0" />
+                     </children>
+                  </Pane>
+                  <Pane id="todaysAppsPane" fx:id="todaysAppsPane" layoutX="15.0" layoutY="620.0" prefHeight="215.0" prefWidth="720.0" style="-fx-background-color: white;">
+                     <children>
+                        <Label id="todaysAppsPaneLabel" layoutX="258.0" layoutY="14.0" text="Today's Appointments">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Line id="todaysAppointmentsCosmeticLine" endX="410.0" endY="1.52587890625E-5" layoutX="284.0" layoutY="55.0" startX="-264.6666564941406" startY="1.52587890625E-5" />
+                        <TableView id="todaysAppsTable" fx:id="todaysAppsTable" layoutX="14.0" layoutY="115.0" prefHeight="90.0" prefWidth="694.0">
+                          <columns>
+                            <TableColumn id="todaysAppsPatientCol" fx:id="todaysAppsPatientCol" prefWidth="110.0" text="Patient" />
+                            <TableColumn id="todaysAppsModalityCol" fx:id="todaysAppsModalityCol" prefWidth="110.0" text="Modality" />
+                            <TableColumn id="todaysAppsDateAndTimeCol" fx:id="todaysAppsDateAndTimeCol" prefWidth="110.0" text="Date and Time" />
+                            <TableColumn id="todaysAppsRadioCol" fx:id="todaysAppsRadioCol" prefWidth="110.0" text="Radiologist" />
+                            <TableColumn id="todaysAppsTechCol" fx:id="todaysAppsTechCol" prefWidth="110.0" text="Technician" />
+                            <TableColumn id="todaysAppsCheckInCol" fx:id="todaysAppsCheckInCol" prefWidth="110.0" />
+                          </columns>
+                        </TableView>
+                        <Label id="searchTodaysAppsLabel" layoutX="506.0" layoutY="74.0" text="Search:">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField id="searchTodaysAppsTextField" fx:id="searchTodaysAppsTextField" layoutX="554.0" layoutY="71.0" onAction="#searchTodaysApps" prefHeight="25.0" prefWidth="141.0" />
+                     </children>
+                  </Pane>
+                  <Pane id="unscheduledOrdersPane" fx:id="unscheduledOrdersPane" layoutX="15.0" layoutY="870.0" prefHeight="215.0" prefWidth="720.0" style="-fx-background-color: white;">
+                     <children>
+                        <Label id="unscheduledOrdersPaneLabel" layoutX="270.0" layoutY="14.0" text="Unscheduled Orders">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Line id="unscheduledOrdersCosmeticLine" endX="410.0" endY="1.52587890625E-5" layoutX="284.0" layoutY="55.0" startX="-264.6666564941406" startY="1.52587890625E-5" />
+                        <TableView id="unscheduledOrdersTable" fx:id="unscheduledOrdersTable" layoutX="14.0" layoutY="115.0" prefHeight="90.0" prefWidth="694.0">
+                          <columns>
+                            <TableColumn id="unscheduledOrdersPatientCol" fx:id="unscheduledOrdersPatientCol" prefWidth="135.0" text="Patient" />
+                            <TableColumn id="unscheduledOrdersDocCol" fx:id="unscheduledOrdersDocCol" prefWidth="135.0" text="Referral MD" />
+                            <TableColumn id="unscheduledOrdersModalityCol" fx:id="unscheduledOrdersModalityCol" prefWidth="135.0" text="Modality" />
+                            <TableColumn id="unscheduledOrdersNotesCol" fx:id="unscheduledOrdersNotesCol" prefWidth="135.0" text="Notes" />
+                            <TableColumn id="unscheduledOrdersScheduleCol" fx:id="unscheduledOrdersScheduleCol" prefWidth="135.0" />
+                          </columns>
+                        </TableView>
+                        <Label id="searchUnscheduledOrdersLabel" layoutX="506.0" layoutY="74.0" text="Search:">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField id="searchUnscheduledOrdersTextField" fx:id="searchUnscheduledOrdersTextField" layoutX="554.0" layoutY="71.0" onAction="#searchUnscheduledOrders" prefHeight="25.0" prefWidth="141.0" />
+                        <Pane id="scheduleAppPane" fx:id="scheduleAppPane" layoutX="15.0" layoutY="-230.0" prefHeight="464.0" prefWidth="688.0" style="-fx-background-color: white;" visible="false">
+                           <children>
+                              <Label id="scheduleAppLabel" fx:id="scheduleOrderLabel" layoutX="28.0" layoutY="23.0" text="Schedule Appointment">
+                                 <font>
+                                    <Font size="22.0" />
+                                 </font>
+                              </Label>
+                              <Line id="scheduleAppCosmeticLine" endX="527.6666870117188" endY="1.52587890625E-5" layoutX="129.0" layoutY="68.0" startX="-100.0" />
+                              <Label id="patientInfoLabel" layoutX="28.0" layoutY="86.0" text="Patient Info">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label id="firstNameLabel" layoutX="28.0" layoutY="118.0" text="First Name:">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <TextField id="appFirstNameTextField" fx:id="appFirstNameTextField" editable="false" layoutX="28.0" layoutY="143.0" prefHeight="25.0" prefWidth="106.0" />
+                              <Label id="LastNameLabel" layoutX="200.0" layoutY="120.0" text="Last Name:">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <TextField id="appLastNameTextField" fx:id="appLastNameTextField" editable="false" layoutX="200.0" layoutY="143.0" prefHeight="25.0" prefWidth="133.0" />
+                              <Label id="DOBLabel" layoutX="375.0" layoutY="120.0" text="DOB:">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <TextField id="appDOBTextField" fx:id="appDOBTextField" layoutX="375.0" layoutY="143.0" />
+                              <Label id="contactInfoLabel" layoutX="28.0" layoutY="184.0" text="Contact Info">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label id="phoneNumberLabel" layoutX="28.0" layoutY="215.0" text="Phone Number:">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <TextField id="appPhoneTextField" fx:id="appPhoneTextField" layoutX="28.0" layoutY="240.0" prefHeight="25.0" prefWidth="119.0" />
+                              <Label id="emailLabel" layoutX="165.0" layoutY="215.0" text="Email:">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <TextField id="appEmailTextField" fx:id="appEmailTextField" layoutX="164.0" layoutY="240.0" />
+                              <Label id="dateLabel" layoutX="325.0" layoutY="215.0" text="Appointment Date:">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <DatePicker id="appDatePicker" fx:id="appDatePicker" layoutX="323.0" layoutY="240.0" onAction="#getTimes" />
+                              <Label id="timeLabel" layoutX="511.0" layoutY="215.0" text="Appointment Time:">
+                              	<font>
+                              		<Font size="16.0" />
+                          		</font>
+                          	  </Label>
+                              <ChoiceBox id="appTimeChoiceBox" fx:id="appTimeChoiceBox" layoutX="511.0" layoutY="240.0" prefWidth="150.0" />
+                              <Label id="officeInfoLabel" layoutX="28.0" layoutY="290.0" text="Office Info">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label id="radioLabel" layoutX="28.0" layoutY="331.0" text="Radiologist:">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <ChoiceBox id="appRadioChoiceBox" fx:id="appRadioChoiceBox" layoutX="28.0" layoutY="356.0" prefWidth="150.0" />
+                              <Label id="techLabel" layoutX="225.0" layoutY="335.0" text="Technician:">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <ChoiceBox id="appTechChoiceBox" fx:id="appTechChoiceBox" layoutX="225.0" layoutY="356.0" prefWidth="150.0" />
+                              <Label id="modalityLabel" layoutX="416.0" layoutY="335.0" text="Modality:">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <ChoiceBox id="appModalityChoiceBox" fx:id="appModalityChoiceBox" layoutX="416.0" layoutY="356.0" prefWidth="150.0" />
+                              <Button id="scheduleAppButton" fx:id="scheduleAppButton" layoutX="159.0" layoutY="408.0" mnemonicParsing="false" onAction="#scheduleAppButton" style="-fx-background-color: #1a7fd7;" text="Schedule Appointment" textFill="WHITE">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Button>
+                              <Button id="cancelButton" fx:id="cancelButton" layoutX="410.0" layoutY="408.0" mnemonicParsing="false" onAction="#cancelButton" style="-fx-background-color: red;" text="Cancel">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Button>
+                              <TextField id="appPatientIDTextField" fx:id="appPatientIDTextField" editable="false" layoutX="544.0" layoutY="143.0" opacity="0.0" prefHeight="25.0" prefWidth="85.0" /> 
+                            </children>
+                        </Pane>
+                     </children>
+                  </Pane>
+                  <Pane id="reviewImagingOrdersPane" fx:id="reviewImagingOrdersPane" layoutX="15.0" layoutY="1120.0" prefHeight="215.0" prefWidth="720.0" style="-fx-background-color: white;">
+                     <children>
+                        <Label id="reviewImagingOrdersPaneLabel" layoutX="259.0" layoutY="14.0" text="Review Imaging Orders">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Line id="reviewImagingOrdersCosmeticLine" endX="410.0" endY="1.52587890625E-5" layoutX="284.0" layoutY="55.0" startX="-264.6666564941406" startY="1.52587890625E-5" />
+                        <TableView id="reviewImagingOrdersTable" fx:id="reviewImagingOrdersTable" layoutX="14.0" layoutY="115.0" prefHeight="90.0" prefWidth="694.0">
+                          <columns>
+                            <TableColumn id="reviewImagingPatientCol" fx:id="reviewImagingPatientCol" prefWidth="130.0" text="Patient" />
+                            <TableColumn id="reviewImagingDocCol" fx:id="reviewImagingDocCol" prefWidth="130.0" text="Referral MD" />
+                            <TableColumn id="reviewImagingModalityCol" fx:id="reviewImagingModalityCol" prefWidth="130.0" text="Modality" />
+                            <TableColumn id="reviewImagingNotesCol" fx:id="reviewImagingNotesCol" prefWidth="130.0" text="Notes" />
+                            <TableColumn id="reviewImagingImageOrderCol" fx:id="reviewImagingImageOrderCol" prefWidth="130.0" />
+                          </columns>
+                        </TableView>
+                        <Label id="searchRIOLabel" layoutX="506.0" layoutY="74.0" text="Search:">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField id="searchRIOTextField" fx:id="searchRIOTextField" layoutX="554.0" layoutY="71.0" onAction="#searchReviewImagingOrders" prefHeight="25.0" prefWidth="141.0" />
+                          <Pane fx:id="scanPane" layoutX="50.0" layoutY="65.0" prefHeight="657.0" prefWidth="657.0" style="-fx-background-color: white;" visible="false">
+					         <children>
+					            <ImageView fx:id="imageView" fitHeight="562.0" fitWidth="627.0" layoutX="17.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true" />
+					            <Button fx:id="closeImage" layoutX="590.0" layoutY="619.0" mnemonicParsing="false" onAction="#closeImagePane" style="-fx-background-color: red;" text="Close" textFill="WHITE">
+					               <font>
+					                  <Font name="System Bold" size="14.0" />
+					               </font>
+					            </Button>
+					            <Label layoutX="274.0" layoutY="14.0" text="Patient Scan">
+					               <font>
+					                  <Font size="20.0" />
+					               </font>
+					            </Label>
+					         </children>
+					      </Pane>
+                          <Pane fx:id="reportPane" layoutX="35.0" layoutY="-25.0" prefHeight="657.0" prefWidth="657.0" style="-fx-background-color: white;" visible="false">
+                          	<children>
+					            <Label layoutX="242.0" layoutY="14.0" text="Diagnostic Report">
+					               <font>
+					                  <Font size="20.0" />
+					               </font>
+					            </Label>
+					            <TextField fx:id="reportPatientTextField" editable="false" layoutX="74.0" layoutY="99.0" prefHeight="25.0" prefWidth="225.0" />
+					            <TextField fx:id="reportRadioTextField" editable="false" layoutX="392.0" layoutY="100.0" prefHeight="25.0" prefWidth="225.0" />
+					            <Label layoutX="26.0" layoutY="101.0" text="Patient:">
+					               <font>
+					                  <Font size="14.0" />
+					               </font>
+					            </Label>
+					            <Label layoutX="316.0" layoutY="102.0" text="Radiologist:">
+					               <font>
+					                  <Font size="14.0" />
+					               </font>
+					            </Label>
+					            <TextField fx:id="reportOrderIDTextField" layoutX="315.0" layoutY="55.0" prefHeight="25.0" prefWidth="62.0" />
+					            <Label layoutX="256.0" layoutY="57.0" text="Order ID:">
+					               <font>
+					                  <Font size="14.0" />
+					               </font>
+					            </Label>
+					            <Button fx:id="closeReportButton" layoutX="570.0" layoutY="377.0" mnemonicParsing="false" onAction="#cancelButton" style="-fx-background-color: red;" text="Close" textFill="WHITE">
+					               <font>
+					                  <Font name="System Bold" size="12.0" />
+					               </font>
+					            </Button>
+					            <Button fx:id="viewImageButton" layoutX="26.0" layoutY="151.0" mnemonicParsing="false" onAction="#viewImage" prefHeight="30.0" prefWidth="90.0" text="View Image" />
+					            <TextArea fx:id="reportTextArea" layoutX="26.0" layoutY="208.0" prefHeight="157.0" prefWidth="591.0" />
+					            <Label layoutX="26.0" layoutY="188.0" text="Report:">
+					               <font>
+					                  <Font size="14.0" />
+					               </font>
+					            </Label>
+					        </children>
+				         </Pane> 
+                     </children>
+                  </Pane>
+                  <Pane id="patientAppsPane" fx:id="patientAppsPane" layoutX="15.0" layoutY="1370.0" prefHeight="215.0" prefWidth="720.0" style="-fx-background-color: white;">
+                     <children>
+                        <Label id="patientAppointmentsPaneLabel" layoutX="265.0" layoutY="14.0" text="Patient Appointments">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Line id="patientAppsCosmeticLine" endX="410.0" endY="1.52587890625E-5" layoutX="284.0" layoutY="55.0" startX="-264.6666564941406" startY="1.52587890625E-5" />
+                        <TableView id="patientAppsTable" fx:id="patientAppsTable" layoutX="14.0" layoutY="115.0" prefHeight="89.0" prefWidth="694.0">
+                          <columns>
+                            <TableColumn id="patientAppsPatientCol" fx:id="patientAppsPatientCol" prefWidth="138.5" text="Patient" />
+                            <TableColumn id="patientAppsModalityCol" fx:id="patientAppsModalityCol" prefWidth="138.5" text="Modality" />
+                            <TableColumn id="patientAppsDateAndTimeCol" fx:id="patientAppsDateAndTimeCol" prefWidth="138.5" text="Date and Time" />
+                            <TableColumn id="patientAppsRadioCol" fx:id="patientAppsRadioCol" prefWidth="138.5" text="Radiologist" />
+                            <TableColumn id="patientAppsTechCol" fx:id="patientAppsTechCol" prefWidth="138.0" text="Technician" />
+                          </columns>
+                        </TableView>
+                        <Label id="searchPALabel" layoutX="506.0" layoutY="74.0" text="Search:">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField id="searchPATextField" fx:id="searchPATextField" layoutX="554.0" layoutY="71.0" onAction="#searchPatientApps" prefHeight="25.0" prefWidth="141.0" />
+                     </children>
+                  </Pane>
+                  <Button id="performanceButton" fx:id="performanceButton" layoutX="20.0" layoutY="61.0" mnemonicParsing="false" onAction="#performanceButton" prefHeight="36.0" prefWidth="116.0" style="-fx-background-color: yellow;" text="Performance" textFill="#462323">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+         </top>
+      </BorderPane>
+   </content>
+</ScrollPane>
